@@ -24,10 +24,12 @@ public class EnemyPool : MonoBehaviour
         {
             if (!enemy.activeInHierarchy)
             {
+                Debug.Log("Activando Enemigo");
                 enemy.SetActive(true);
                 return enemy;
             }
         }
+        Debug.Log("No hay Enemigos Inactivos");
         return null;
     }
 
@@ -39,5 +41,11 @@ public class EnemyPool : MonoBehaviour
             enemy.transform.position = transform.position;
         }
     }
+
+    public bool hasDisabledChildrens(){
+        return enemyList.FindAll(e => e.activeSelf).Count > 0;
+    }
+
+
 
 }

@@ -21,14 +21,13 @@ public class WaveManager : MonoBehaviour
         yield return new WaitForSeconds(delaySpawn);
         while (currentWave < waves.Count)
         {
+
             Wave wave = waves[currentWave];
             for (int i = 0; i < wave.numEnemies; i++)
             {
                 GameObject enemy = enemyPool.GetEnemy();
-                enemy.transform.position = new Vector3(0, 0f, 0f);
                 yield return new WaitForSeconds(wave.delayBetweenSpawns);
             }
-            enemyPool.DisableAllEnemies();
             yield return new WaitForSeconds(delayBetweenWaves);
             currentWave++;
         }
