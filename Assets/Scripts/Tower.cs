@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Tower : MonoBehaviour
@@ -14,23 +13,14 @@ public class Tower : MonoBehaviour
     [SerializeField] bool useAI;
     [SerializeField] float firingRateVariance = 0.3f;
     [SerializeField] float minimumFiringRate = 2f;
-    List<Collider2D> enemiesOnRange;
-
-    void Start()
-    {
-        enemiesOnRange = new List<Collider2D>();
-    }
-
-
-
-
+    int enemiesOnRange = 0;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Enemy")
         {
-            enemiesOnRange.Add(other);
-            Debug.Log(enemiesOnRange.Count);
+            enemiesOnRange++;
+            Debug.Log("Entra " + enemiesOnRange);
             if (!isFiring)
             {
                 isFiring = true;
@@ -41,14 +31,22 @@ public class Tower : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        enemiesOnRange.Remove(other);
+        if (other.tag == "Enemy")
+        {
+            enemiesOnRange--;
+            Debug.Log("Sale " + enemiesOnRange);
+            if (enemiesOnRange == 0)
+            {
+                isFiring = false; //RESET FIRE
+            }
+        }
     }
 
 
 
     IEnumerator FireToEnemy()
     {
-        while (enemiesOnRange.Count > 0)
+        while (enemiesOnRange > 0)
         {
             GameObject instance = Instantiate(projectilePrefab,
                                         transform.position,
@@ -58,11 +56,12 @@ public class Tower : MonoBehaviour
             float timeToNextProjectile = Random.Range(baseFiringRate - firingRateVariance,
                                             baseFiringRate + firingRateVariance);
             timeToNextProjectile = Mathf.Clamp(timeToNextProjectile, minimumFiringRate, float.MaxValue);
-            Debug.Log("Se espero: " + timeToNextProjectile);
+            // Debug.Log("Se espero: " + timeToNextProjectile);
             yield return new WaitForSeconds(timeToNextProjectile);
-            isFiring = false;
 
         }
+        isFiring = false; //RESET FIRE
+
 
 
     }

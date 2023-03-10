@@ -2602,8 +2602,16 @@ MonoBehaviour:
   - numEnemies: 1
     delayBetweenSpawns: 1
     delayBetweenWaves: 3
-  delayBetweenWaves: 2
-  delaySpawn: 2
+  - numEnemies: 1
+    delayBetweenSpawns: 1
+    delayBetweenWaves: 3
+  - numEnemies: 1
+    delayBetweenSpawns: 6
+    delayBetweenWaves: 5
+  - numEnemies: 1
+    delayBetweenSpawns: 1
+    delayBetweenWaves: 3
+  delaySpawn: 5
 --- !u!4 &933184813
 Transform:
   m_ObjectHideFlags: 0
@@ -2732,6 +2740,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 6689141926487147572, guid: 187dc4cb312eac942a64e32e56f7db66, type: 3}
-  poolSize: 1
+  poolSize: 4
   enemyList:
+  - {fileID: 6689141926487147572, guid: 187dc4cb312eac942a64e32e56f7db66, type: 3}
+  - {fileID: 6689141926487147572, guid: 187dc4cb312eac942a64e32e56f7db66, type: 3}
+  - {fileID: 6689141926487147572, guid: 187dc4cb312eac942a64e32e56f7db66, type: 3}
   - {fileID: 6689141926487147572, guid: 187dc4cb312eac942a64e32e56f7db66, type: 3}

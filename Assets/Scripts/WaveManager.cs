@@ -6,7 +6,6 @@ public class WaveManager : MonoBehaviour
 {
     public EnemyPool enemyPool;
     public List<Wave> waves;
-    public float delayBetweenWaves;
     [SerializeField] float delaySpawn;
     private int currentWave;
 
@@ -28,7 +27,7 @@ public class WaveManager : MonoBehaviour
                 GameObject enemy = enemyPool.GetEnemy();
                 yield return new WaitForSeconds(wave.delayBetweenSpawns);
             }
-            yield return new WaitForSeconds(delayBetweenWaves);
+            yield return new WaitForSeconds(wave.delayBetweenWaves);
             currentWave++;
         }
     }
