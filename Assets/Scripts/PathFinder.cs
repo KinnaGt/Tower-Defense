@@ -39,7 +39,7 @@ public class PathFinder : MonoBehaviour
         }
     }
 
-    private void Reset()
+    public void Reset()
     {
         waypointIndex = 0;
         transform.position = waypoints[0].position;

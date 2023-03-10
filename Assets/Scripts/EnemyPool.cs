@@ -24,12 +24,10 @@ public class EnemyPool : MonoBehaviour
         {
             if (!enemy.activeInHierarchy)
             {
-                Debug.Log("Activando Enemigo");
                 enemy.SetActive(true);
                 return enemy;
             }
         }
-        Debug.Log("No hay Enemigos Inactivos");
         return null;
     }
 

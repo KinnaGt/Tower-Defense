@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 6689141926487147573}
   - component: {fileID: 1916262074}
   - component: {fileID: -5006199833150359879}
-  m_Layer: 0
+  - component: {fileID: 1128914171317588552}
+  - component: {fileID: 1800299075171475028}
+  m_Layer: 6
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +46,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.000000029802322, y: 0}
@@ -63,6 +65,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveConfig: {fileID: 11400000, guid: 9f5f8133921bb1e45aa776a65d1c0e04, type: 2}
+--- !u!114 &1128914171317588552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6689141926487147572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffc1062cb78b25640a68ec93a31bd9b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 25
+  hitEffect: {fileID: 2057468630142166757, guid: 7ea8d45c78bed85419c7a1aaefdd825c, type: 3}
+--- !u!50 &1800299075171475028
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6689141926487147572}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &6689141927290148416
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,7 +110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6689141927290148417}
   - component: {fileID: 6689141927290148418}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
