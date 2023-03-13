@@ -35,10 +35,10 @@ public class Tower : MonoBehaviour
         {
             enemiesOnRange--;
             Debug.Log("Sale " + enemiesOnRange);
-            if (enemiesOnRange == 0)
-            {
-                isFiring = false; //RESET FIRE
-            }
+            // if (enemiesOnRange == 0)
+            // {
+            //     isFiring = false; //RESET FIRE
+            // }
         }
     }
 

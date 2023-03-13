@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: WaveConfig1
   m_EditorClassIdentifier: 
   pathPrefab: {fileID: 2226765296175712580, guid: ebca93893a32f9e4fb1bbcee1f0f2fca, type: 3}
-  moveSpeed: 1
+  moveSpeed: 5

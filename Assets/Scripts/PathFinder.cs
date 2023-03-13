@@ -6,6 +6,8 @@ public class PathFinder : MonoBehaviour
     [SerializeField] WaveConfigSO waveConfig;
     List<Transform> waypoints;
     int waypointIndex = 0;
+    [SerializeField] ParticleSystem hitEffect;
+
 
     void Start()
     {
@@ -44,6 +46,16 @@ public class PathFinder : MonoBehaviour
         waypointIndex = 0;
         transform.position = waypoints[0].position;
         gameObject.SetActive(false);
+    }
+
+    void PlayHitEffect()
+    {
+        if (hitEffect != null)
+        {
+            ParticleSystem instance = Instantiate(hitEffect, transform.position, Quaternion.identity);
+            Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
+        }
+
     }
 }
 
