@@ -9,6 +9,7 @@ public class TowerManager : MonoBehaviour
     [SerializeField] Tilemap tilemap;
     [SerializeField] TileBase allowed;
     List<Vector3> positionsFree;
+    bool positioning = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,16 +20,42 @@ public class TowerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (positioning)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Vector3 mousePos = Input.mousePosition;
+                Vector3Int cellPos = tilemap.WorldToCell(Camera.main.ScreenToWorldPoint(mousePos));
+                TileBase tile = tilemap.GetTile(cellPos);
+                if (tile == allowed)
+                {
+                    Vector3 tilePos = tilemap.CellToWorld(cellPos);
+                    if (!positionsFree.Contains(tilePos))
+                    {
+                        Debug.Log("Ya hay una torre ahi");
+                    }
+                    else
+                    {
+                        Instantiate(towerPrefab, tilePos, Quaternion.identity);
+                        positionsFree.Remove(tilePos);
+                    }
+                }
+                else
+                {
+                    Debug.Log("Tile not Allowed");
+                }
+                positioning = false;
+            }
+        }
+
 
     }
-    
+
     public void CreateTower()
     {
-        Instantiate(towerPrefab, positionsFree[0], Quaternion.identity);
-        positionsFree.RemoveAt(0);
+        positioning = true;
     }
 
-    
     private void SelectTilesOfType(TileBase tileType)
     {
         BoundsInt bounds = tilemap.cellBounds;
@@ -41,7 +68,6 @@ public class TowerManager : MonoBehaviour
                 {
                     // Do something with the selected tile
                     positionsFree.Add(new Vector3(x, y, 0));
-                    Debug.Log("Selected tile at position: " + new Vector3(x, y, 0));
                 }
             }
         }
