@@ -8,6 +8,7 @@ public class TowerManager : MonoBehaviour
     [SerializeField] GameObject towerPrefab;
     [SerializeField] Tilemap tilemap;
     [SerializeField] TileBase allowed;
+    ShopManager shopManager;
     List<Vector3> positionsFree;
     bool positioning = false;
     // Start is called before the first frame update
@@ -15,6 +16,7 @@ public class TowerManager : MonoBehaviour
     {
         positionsFree = new List<Vector3>();
         SelectTilesOfType(allowed);
+        shopManager = FindObjectOfType<ShopManager>();
     }
 
     // Update is called once per frame
@@ -37,6 +39,8 @@ public class TowerManager : MonoBehaviour
                     else
                     {
                         Instantiate(towerPrefab, tilePos, Quaternion.identity);
+                        shopManager.ChangeMoney(-50);
+
                         positionsFree.Remove(tilePos);
                     }
                 }
@@ -53,7 +57,15 @@ public class TowerManager : MonoBehaviour
 
     public void CreateTower()
     {
-        positioning = true;
+        if (shopManager.GetMoney() >= 50 && !positioning)
+        {
+            positioning = true;
+        }
+        else
+        {
+            Debug.Log("Dinero Insuficiente");
+        }
+
     }
 
     private void SelectTilesOfType(TileBase tileType)

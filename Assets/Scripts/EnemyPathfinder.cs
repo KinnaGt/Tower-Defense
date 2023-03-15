@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PathFinder : MonoBehaviour
+public class EnemyPathfinder : MonoBehaviour
 {
     [SerializeField] WaveConfigSO waveConfig;
     List<Transform> waypoints;
