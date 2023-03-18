@@ -4,12 +4,21 @@ using UnityEngine.Tilemaps;
 
 public class TowerManager : MonoBehaviour
 {
-
+    [Header("Posicionamiento")]
     [SerializeField] GameObject towerPrefab;
     [SerializeField] Tilemap tilemap;
     [SerializeField] TileBase allowed;
+    [SerializeField] Sprite spriteToDraw;
+    [SerializeField] GameObject panelUI;
+
     ShopManager shopManager;
     List<Vector3> positionsFree;
+
+    //Preview
+    SpriteRenderer spriteRenderer;
+    GameObject spriteObj;
+
+
     bool positioning = false;
     // Start is called before the first frame update
     void Start()
@@ -24,13 +33,19 @@ public class TowerManager : MonoBehaviour
     {
         if (positioning)
         {
+            Vector3 mousePos = Input.mousePosition;
+            Vector3Int cellPos = tilemap.WorldToCell(Camera.main.ScreenToWorldPoint(mousePos));
+            TileBase tile = tilemap.GetTile(cellPos);
+
+
+            spriteObj.transform.position = cellPos;
+            
+            
             if (Input.GetMouseButtonDown(0))
             {
-                Vector3 mousePos = Input.mousePosition;
-                Vector3Int cellPos = tilemap.WorldToCell(Camera.main.ScreenToWorldPoint(mousePos));
-                TileBase tile = tilemap.GetTile(cellPos);
                 if (tile == allowed)
                 {
+                    
                     Vector3 tilePos = tilemap.CellToWorld(cellPos);
                     if (!positionsFree.Contains(tilePos))
                     {
@@ -40,7 +55,7 @@ public class TowerManager : MonoBehaviour
                     {
                         Instantiate(towerPrefab, tilePos, Quaternion.identity);
                         shopManager.ChangeMoney(-50);
-
+                        
                         positionsFree.Remove(tilePos);
                     }
                 }
@@ -49,6 +64,9 @@ public class TowerManager : MonoBehaviour
                     Debug.Log("Tile not Allowed");
                 }
                 positioning = false;
+                panelUI.SetActive(false);
+                Destroy(spriteObj);
+
             }
         }
 
@@ -60,6 +78,13 @@ public class TowerManager : MonoBehaviour
         if (shopManager.GetMoney() >= 50 && !positioning)
         {
             positioning = true;
+
+            spriteObj = new GameObject();
+            spriteRenderer = spriteObj.AddComponent<SpriteRenderer>();
+            spriteRenderer.sprite = spriteToDraw;
+            spriteRenderer.sortingLayerName = "Towers"; 
+            SetAlpha(0.5f);
+            panelUI.SetActive(true);
         }
         else
         {
@@ -83,5 +108,12 @@ public class TowerManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void SetAlpha(float alpha)
+    {
+        Color color = spriteRenderer.color;
+        color.a = alpha;
+        spriteRenderer.color = color;
     }
 }
