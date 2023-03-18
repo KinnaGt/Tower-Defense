@@ -7,10 +7,12 @@ public class EnemyPathfinder : MonoBehaviour
     List<Transform> waypoints;
     int waypointIndex = 0;
     [SerializeField] ParticleSystem hitEffect;
+    CastleManager castleManager;
 
 
     void Start()
     {
+        castleManager = FindObjectOfType<CastleManager>();
         waypoints = waveConfig.GetWaypoints();
         transform.position = waypoints[waypointIndex].position;
     }
@@ -37,6 +39,7 @@ public class EnemyPathfinder : MonoBehaviour
         }
         else
         {
+            castleManager.ReceiveDamage(20);
             Reset();
         }
     }
