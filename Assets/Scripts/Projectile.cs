@@ -13,8 +13,17 @@ public class Projectile : MonoBehaviour
     {
         if (closestObject != null)
         {
+            // Calculate the direction towards the closest object
+            Vector2 direction = closestObject.transform.position - transform.position;
+
+            // Rotate the projectile towards the closest object
+            transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
+
+            // Move the projectile towards the closest object
             float delta = projectileSpeed * Time.deltaTime;
             transform.position = Vector2.MoveTowards(transform.position, closestObject.transform.position, delta);
+
+
             if (transform.position == closestObject.transform.position)
             {
                 Destroy(gameObject);
