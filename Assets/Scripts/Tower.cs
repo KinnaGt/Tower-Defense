@@ -20,7 +20,6 @@ public class Tower : MonoBehaviour
         if (other.tag == "Enemy")
         {
             enemiesOnRange++;
-            Debug.Log("Entra " + enemiesOnRange);
             if (!isFiring)
             {
                 isFiring = true;
@@ -34,7 +33,6 @@ public class Tower : MonoBehaviour
         if (other.tag == "Enemy")
         {
             enemiesOnRange--;
-            Debug.Log("Sale " + enemiesOnRange);
             // if (enemiesOnRange == 0)
             // {
             //     isFiring = false; //RESET FIRE
@@ -56,7 +54,6 @@ public class Tower : MonoBehaviour
             float timeToNextProjectile = Random.Range(baseFiringRate - firingRateVariance,
                                             baseFiringRate + firingRateVariance);
             timeToNextProjectile = Mathf.Clamp(timeToNextProjectile, minimumFiringRate, float.MaxValue);
-            // Debug.Log("Se espero: " + timeToNextProjectile);
             yield return new WaitForSeconds(timeToNextProjectile);
 
         }
