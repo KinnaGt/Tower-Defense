@@ -25,7 +25,7 @@ public class Health : MonoBehaviour
         }
     }
 
-
+    
 
     void TakeDamage(int damage)
     {
@@ -49,15 +49,17 @@ public class Health : MonoBehaviour
 
     }
 
-    
 
-    public int GetCurrentHealth(){
+
+    public int GetCurrentHealth()
+    {
         return health;
     }
-    public int GetMaxHealth(){
+    public int GetMaxHealth()
+    {
         return maxHealth;
     }
-    
+
     public bool isDead()
     {
         return gameObject.activeSelf;

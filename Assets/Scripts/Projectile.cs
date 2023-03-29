@@ -9,6 +9,9 @@ public class Projectile : MonoBehaviour
     {
         closestObject = null;
     }
+
+    
+    
     void Update()
     {
         if (closestObject != null)
@@ -53,6 +56,9 @@ public class Projectile : MonoBehaviour
         }
 
         return closestObject;
+    }
+    public void setDamage(){
+        
     }
 
 }
