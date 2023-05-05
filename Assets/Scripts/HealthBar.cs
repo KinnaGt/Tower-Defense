@@ -28,6 +28,7 @@ public class HealthBar : MonoBehaviour
         {
             // Destroy the health bar if the enemy is dead
             Destroy(gameObject);
+            
         }
     }
 }

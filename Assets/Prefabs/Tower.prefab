@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 905987769938609812}
   - component: {fileID: 905987769938609813}
   - component: {fileID: 5609416068306497130}
-  m_Layer: 0
+  - component: {fileID: 4886956389971734807}
+  - component: {fileID: 9054459852672092773}
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 905987770287491359}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &905987769938609813
 SpriteRenderer:
@@ -105,6 +107,49 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &4886956389971734807
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905987769938609815}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.49634838, y: 0.47711506}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.96475697, y: 0.93120354}
+  m_EdgeRadius: 0
+--- !u!114 &9054459852672092773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905987769938609815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61679d2fa5c3ca445ae5a55ee2e368e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackController: {fileID: 5744653094144771377}
+  damageText: {fileID: 5821811329004822123}
+  upgradeCostText: {fileID: 3854268436565600374}
+  upgradeUI: {fileID: 8703079569045861177}
+  shopManager: {fileID: 0}
 --- !u!1 &905987770287491329
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,12 +159,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 905987770287491359}
-  - component: {fileID: 905987770287491358}
-  - component: {fileID: 905987770287491356}
-  - component: {fileID: 1082580038180767555}
   m_Layer: 0
   m_Name: Tower
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,75 +178,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3957801359810673202}
   - {fileID: 905987769938609812}
   - {fileID: 5652466039389868345}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &905987770287491358
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 905987770287491329}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 1.3635547, y: 0.9544883}
-  serializedVersion: 2
-  m_Radius: 2.818043
---- !u!114 &905987770287491356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 905987770287491329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d9f48476e830b243bb38d4d8b3becad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 5688098700215857044, guid: fe369def8ebdb0b4cb1053dd73ed9b95, type: 3}
-  baseFiringRate: 1
-  isFiring: 0
-  useAI: 1
-  firingRateVariance: 0.1
-  minimumFiringRate: 0.1
-  enemiesOnRange: 0
-  shopManager: {fileID: 0}
-  damageText: {fileID: 5821811329004822123}
-  upgradeCostText: {fileID: 3854268436565600374}
---- !u!61 &1082580038180767555
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 905987770287491329}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.50193167, y: 0.46780998}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.97592354, y: 0.9498137}
-  m_EdgeRadius: 0
 --- !u!1 &1809747095301802204
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,7 +195,7 @@ GameObject:
   - component: {fileID: 6683008226642164355}
   - component: {fileID: 141663058629846407}
   - component: {fileID: 3854268436565600374}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: UpgradeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +330,7 @@ GameObject:
   - component: {fileID: 5431810935726154528}
   - component: {fileID: 348896105072428740}
   - component: {fileID: 8079915957238927047}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ExitText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -487,7 +466,7 @@ GameObject:
   - component: {fileID: 2671167587305564916}
   - component: {fileID: 7588738428764603032}
   - component: {fileID: 5315142440167639845}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: BtnUpgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -597,9 +576,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 905987770287491356}
-        m_TargetAssemblyTypeName: Tower, Assembly-CSharp
-        m_MethodName: upgradeTower
+      - m_Target: {fileID: 9054459852672092773}
+        m_TargetAssemblyTypeName: Upgrade, Assembly-CSharp
+        m_MethodName: UpgradeTower
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -620,7 +599,7 @@ GameObject:
   - component: {fileID: 727446271327231030}
   - component: {fileID: 2451632049947057221}
   - component: {fileID: 8654676807853748330}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -697,7 +676,7 @@ GameObject:
   - component: {fileID: 1238888263022727778}
   - component: {fileID: 7927550401358570324}
   - component: {fileID: 1225756961615138550}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: BtnExit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -808,7 +787,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 905987770287491356}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Tower, Assembly-CSharp
         m_MethodName: DisableUpgradeUI
         m_Mode: 1
@@ -831,7 +810,7 @@ GameObject:
   - component: {fileID: 4178326678719268529}
   - component: {fileID: 8458077831967011071}
   - component: {fileID: 7671460505018842974}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -908,7 +887,7 @@ GameObject:
   - component: {fileID: 8415102199281157303}
   - component: {fileID: 7938787803392987389}
   - component: {fileID: 3393629119909382236}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -958,7 +937,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 593124405
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!114 &7938787803392987389
 MonoBehaviour:
@@ -999,7 +978,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 129
 --- !u!1 &6033925577165893231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,7 +990,7 @@ GameObject:
   - component: {fileID: 8876669922637655746}
   - component: {fileID: 2505563818866794917}
   - component: {fileID: 5821811329004822123}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: DamageText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1135,6 +1114,75 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &6919207963556603913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3957801359810673202}
+  - component: {fileID: 2877193146427548787}
+  - component: {fileID: 5744653094144771377}
+  m_Layer: 0
+  m_Name: Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3957801359810673202
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6919207963556603913}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 905987770287491359}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &2877193146427548787
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6919207963556603913}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.5, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.818043
+--- !u!114 &5744653094144771377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6919207963556603913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef3eab666e0f8b42a7755b3114f1380, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 5688098700215857044, guid: fe369def8ebdb0b4cb1053dd73ed9b95, type: 3}
+  baseFiringRate: 2
+  useAI: 1
+  firingRateVariance: 0.3
+  minimumFiringRate: 2
+  enemiesOnRange: 0
+  damage: 20
+  isFiring: 0
 --- !u!1 &8703079569045861177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,7 +1192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5652466039389868345}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: UpgradeUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1165,5 +1213,5 @@ Transform:
   m_Children:
   - {fileID: 4072907257463395217}
   m_Father: {fileID: 905987770287491359}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

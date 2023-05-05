@@ -7,13 +7,29 @@ public class WaveManager : MonoBehaviour
     public EnemyPool enemyPool;
     public List<Wave> waves;
     [SerializeField] float delaySpawn;
+    private int totalWaves;
+    private int remainingWaves;
     private int currentWave;
 
     void Start()
     {
         currentWave = 0;
         StartCoroutine(SpawnWaves());
+        totalWaves = waves.Count;
+        remainingWaves = totalWaves;
     }
+
+    public int GetTotalWaves()
+    {
+        return totalWaves;
+    }
+
+    public int GetRemainingWaves()
+    {
+        return remainingWaves;
+    }
+
+
 
     IEnumerator SpawnWaves()
     {
@@ -22,11 +38,12 @@ public class WaveManager : MonoBehaviour
         {
 
             Wave wave = waves[currentWave];
-            for (int i = 0; i < wave.numEnemies; i++)
+            for (int i = 0; i < wave.GetNumEnemies(); i++)
             {
                 GameObject enemy = enemyPool.GetEnemy();
                 yield return new WaitForSeconds(wave.delayBetweenSpawns);
             }
+            remainingWaves--;
             yield return new WaitForSeconds(wave.delayBetweenWaves);
             currentWave++;
         }
@@ -36,7 +53,12 @@ public class WaveManager : MonoBehaviour
 [System.Serializable]
 public class Wave
 {
-    public int numEnemies = 5;
+    [SerializeField] int numEnemies = 5;
     public float delayBetweenSpawns = 1.0f;
     public float delayBetweenWaves = 3.0f;
+
+    public int GetNumEnemies()
+    {
+        return numEnemies;
+    }
 }
