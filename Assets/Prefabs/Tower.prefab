@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1559223115
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bb99eaa151717894392312a465e9b9e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 6683008226642164355}
   - component: {fileID: 141663058629846407}
   - component: {fileID: 3854268436565600374}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: UpgradeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 5431810935726154528}
   - component: {fileID: 348896105072428740}
   - component: {fileID: 8079915957238927047}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ExitText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -466,7 +466,7 @@ GameObject:
   - component: {fileID: 2671167587305564916}
   - component: {fileID: 7588738428764603032}
   - component: {fileID: 5315142440167639845}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BtnUpgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -599,7 +599,7 @@ GameObject:
   - component: {fileID: 727446271327231030}
   - component: {fileID: 2451632049947057221}
   - component: {fileID: 8654676807853748330}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -676,7 +676,7 @@ GameObject:
   - component: {fileID: 1238888263022727778}
   - component: {fileID: 7927550401358570324}
   - component: {fileID: 1225756961615138550}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BtnExit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -810,7 +810,7 @@ GameObject:
   - component: {fileID: 4178326678719268529}
   - component: {fileID: 8458077831967011071}
   - component: {fileID: 7671460505018842974}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -887,7 +887,7 @@ GameObject:
   - component: {fileID: 8415102199281157303}
   - component: {fileID: 7938787803392987389}
   - component: {fileID: 3393629119909382236}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -978,7 +978,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 129
+    m_Bits: 0
 --- !u!1 &6033925577165893231
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,7 +990,7 @@ GameObject:
   - component: {fileID: 8876669922637655746}
   - component: {fileID: 2505563818866794917}
   - component: {fileID: 5821811329004822123}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DamageText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1192,7 +1192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5652466039389868345}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: UpgradeUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}

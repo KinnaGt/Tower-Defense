@@ -4131,7 +4131,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2147483647
 --- !u!114 &1727585940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4322,6 +4322,10 @@ PrefabInstance:
     - target: {fileID: 905987770287491359, guid: c8338e86ac07f3940b9a773a5de8b796, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3393629119909382236, guid: c8338e86ac07f3940b9a773a5de8b796, type: 3}
+      propertyPath: m_BlockingObjects
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8338e86ac07f3940b9a773a5de8b796, type: 3}

@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Upgrade : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class Upgrade : MonoBehaviour
     [Header("Collider")]
     BoxCollider2D boxCollider;
 
-     [Header("Shop")]
+    [Header("Shop")]
     [SerializeField] ShopManager shopManager;
 
 
@@ -39,36 +40,27 @@ public class Upgrade : MonoBehaviour
 
     private void MouseButtonDown()
     {
+        if(EventSystem.current.IsPointerOverGameObject()){
+            return;
+        }
         if (Input.GetMouseButtonDown(0))
         {
+           
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-            LayerMask layerMask = LayerMask.GetMask("Towers");
-
-            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(mousePosition, .1f, layerMask);
-
-            // Loop through the colliders to check if each one is a BoxCollider2D and perform the desired action for each one that is clicked
-            foreach (Collider2D hitCollider in hitColliders)
+            RaycastHit2D boxHit = Physics2D.Raycast(mousePosition, Vector2.zero, 0f, LayerMask.GetMask("Towers"));
+            if (boxHit.collider != null && boxHit.collider == boxCollider)
             {
-
-                BoxCollider2D hitBoxCollider = hitCollider?.GetComponent<BoxCollider2D>();
-                
-                if (hitBoxCollider != null && hitCollider.gameObject == gameObject)
-                {
-                    // Do something with the hit collider, which is a BoxCollider2D
-                    Debug.Log("Box collider clicked!" + hitCollider.name);
-                    upgradeUI.SetActive(!upgradeUI.activeSelf);
-                }
+                upgradeUI.SetActive(!upgradeUI.activeSelf);
             }
-
         }
-        
+
+
     }
 
 
     private void updateDamage(int damage)
     {
-        attackController.Damage= damage;
+        attackController.Damage = damage;
         damageText.text = "Damage: " + damage;
     }
 
@@ -76,7 +68,7 @@ public class Upgrade : MonoBehaviour
     {
         if (shopManager.GetMoney() >= upgradeCost)
         {
-            updateDamage(  attackController.Damage  + 5);
+            updateDamage(attackController.Damage + 5);
             shopManager.ChangeMoney(-upgradeCost);
             upgradeCost += 5;
             upgradeCostText.text = "" + upgradeCost;
